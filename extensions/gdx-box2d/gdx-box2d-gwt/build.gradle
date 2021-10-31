@@ -15,7 +15,7 @@
  ******************************************************************************/
 
 dependencies {
-	compile libraries.gwt
+	implementation libraries.gwt
 }
 
 configurations.all {
