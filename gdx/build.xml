@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="gdx">
+	<property environment="env"/>
+	<property name="dir.jarfile" value="$./"/>
+	<property name="gdx-backend-android.location" value="../backends/gdx-backend-android"/>
+	<property name="gdx-backend-headless.location" value="../backends/gdx-backend-headless"/>
+	<property name="gdx-backend-lwjgl.location" value="../backends/gdx-backend-lwjgl"/>
+	<property name="gdx-backend-lwjgl3.location" value="../backends/gdx-backend-lwjgl3"/>
+	<property name="gdx-backend-robovm.location" value="../backends/gdx-backend-robovm"/>
+	<property name="gdx-backends-gwt.location" value="../backends/gdx-backends-gwt"/>
+	<property name="gdx-box2d.location" value="../extensions/gdx-box2d/gdx-box2d"/>
+	<property name="gdx-box2d-gwt.location" value="../extensions/gdx-box2d/gdx-box2d-gwt"/>
+	<property name="gdx-bullet.location" value="../extensions/gdx-bullet"/>
+	<property name="gdx-freetype.location" value="../extensions/gdx-freetype"/>
+	<property name="gdx-tests.location" value="../tests/gdx-tests"/>
+	<property name="gdx-tests-gwt.location" value="../tests/gdx-tests-gwt"/>
+	<property name="gdx-tests-iosrobovm.location" value="../tests/gdx-tests-iosrobovm"/>
+	<property name="gdx-tests-lwjgl.location" value="../tests/gdx-tests-lwjgl"/>
+	<property name="gdx-tests-lwjgl3.location" value="../tests/gdx-tests-lwjgl3"/>
+	<property name="gdx-tools.location" value="../extensions/gdx-tools"/>
+	<property name="debuglevel" value="source,lines,vars"/>
+	<property name="target" value="1.7"/>
+	<property name="source" value="1.7"/>
+	
+	<path id="Project and External Dependencies.libraryclasspath">
+		<pathelement location="../../../../../Users/Blank/.m2/repository/com/badlogicgames/gdx/gdx-jnigen-loader/2.2.0/gdx-jnigen-loader-2.2.0.jar"/>
+		<pathelement location="../../../../../Users/Blank/.m2/repository/junit/junit/4.11/junit-4.11.jar"/>
+		<pathelement location="../../../../../Users/Blank/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+	</path>
+		
+	<path id="gdx.classpath">
+		<pathelement location="bin/main"/>
+		<pathelement location="bin/test"/>
+		<path refid="Project and External Dependencies.libraryclasspath"/>
+	</path>
+	
+	<target name="init">
+		<mkdir dir="bin/main"/>
+		<mkdir dir="bin/test"/>
+		<copy includeemptydirs="false" todir="bin/main">
+			<fileset dir="res">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+		<copy includeemptydirs="false" todir="bin/main">
+			<fileset dir="src">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+		<copy includeemptydirs="false" todir="bin/test">
+			<fileset dir="test">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+		
+	<target name="clean">
+		<delete dir="bin/main"/>
+		<delete dir="bin/test"/>
+	</target>
+		
+	<target depends="clean" name="cleanall"/>
+	
+	<target depends="build-subprojects,build-project" name="build"/>
+	
+	<target name="build-subprojects"/>
+		
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}"/>
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin/main" includeantruntime="false" source="${source}" target="${target}">
+			<src path="res"/>
+			<src path="src"/>
+			<classpath refid="gdx.classpath"/>
+		</javac>
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin/test" includeantruntime="false" source="${source}" target="${target}">
+			<src path="test"/>
+			<classpath refid="gdx.classpath"/>
+		</javac>
+	</target>
+	
+	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+		<ant antfile="build.xml" dir="${gdx-backend-android.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-backend-android.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-backend-headless.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-backend-headless.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-backend-lwjgl.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-backend-lwjgl.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-backend-lwjgl3.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-backend-lwjgl3.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-backend-robovm.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-backend-robovm.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-backends-gwt.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-backends-gwt.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-box2d.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-box2d.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-box2d-gwt.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-box2d-gwt.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-bullet.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-bullet.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-freetype.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-freetype.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-tests.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-tests.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-tests-gwt.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-tests-gwt.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-tests-iosrobovm.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-tests-iosrobovm.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-tests-lwjgl.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-tests-lwjgl.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-tests-lwjgl3.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-tests-lwjgl3.location}" inheritAll="false" target="build"/>
+		<ant antfile="build.xml" dir="${gdx-tools.location}" inheritAll="false" target="clean"/>
+		<ant antfile="build.xml" dir="${gdx-tools.location}" inheritAll="false" target="build"/>
+	</target>
+
+
+	<target name="create_jar">
+		<jar destfile="./gdx.jar">
+			<manifest>
+				<!-- <attribute name="Main-Class" value="com.souchy.randd.ebishoal.sapphire.main.SapphireOwl" /> -->
+				<attribute name="Class-Path" value=". ${mf.classpath}" />
+			</manifest>
+			<fileset dir="./bin/main">
+				<include name="com/**"/>
+			</fileset>
+			<fileset dir="./src/">
+				<include name="com/**"/>
+			</fileset>
+			<!--
+			<fileset dir="./bin">
+				<include name="module-info.class"/>
+			</fileset>
+			-->
+			<!-- <fileset dir="${dir.git}/r and d/ebi/Effekseer 2/bin"/> -->
+
+			<!--
+			<artifact:dependencies filesetId="deps.fileset" type="jar">
+			  <pom file="mypom.xml"/>
+			</artifact:dependencies>
+			-->
+		</jar>
+	</target>
+
+
+</project>
