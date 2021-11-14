@@ -42,10 +42,10 @@ public class TextureAttribute extends Attribute {
 
 	protected static long Mask = Diffuse | Specular | Bump | Normal | Ambient | Emissive | Reflection;
 
-	public final static void registerMask(final long mask) {
+	public final static void registerMask (final long mask) {
 		Mask |= mask;
 	}
-	
+
 	public final static boolean is (final long mask) {
 		return (mask & Mask) != 0;
 	}
