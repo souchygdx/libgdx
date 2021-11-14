@@ -37,7 +37,11 @@ public class ColorAttribute extends Attribute {
 	public static final long Fog = register(FogAlias);
 
 	protected static long Mask = Ambient | Diffuse | Specular | Emissive | Reflection | AmbientLight | Fog;
-
+	
+	public final static void registerMask(final long mask) {
+		Mask |= mask;
+	}
+	
 	public final static boolean is (final long mask) {
 		return (mask & Mask) != 0;
 	}
